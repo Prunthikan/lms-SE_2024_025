@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff9452c9-4873-4c4d-8c25-3f9b3d5f086d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/lms/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lms/model/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lms/model/Member.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lms/service/Library.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lms/model/DVD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lms/model/LibraryItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lms/model/Staff.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lms/model/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lms/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lms/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lms/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lms/model/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lms/model/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lms/model/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lms/service/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lms/service/Library.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +25,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
@@ -43,7 +52,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "week2-encapsulation",
+    "git-widget-placeholder": "week3-inheritance-polymorphism",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/prunt/Documents/GitHub/lms-SE_2024_025",
     "nodejs_package_manager_path": "npm",
