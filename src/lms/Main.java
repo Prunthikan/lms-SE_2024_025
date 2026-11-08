@@ -1,40 +1,45 @@
 package lms;
 import lms.model.Book;
-import lms.model.Member;
+import lms.model.DVD;
+import lms.model.Student;
+import lms.model.Staff;
 import lms.service.Library;
 
 public class Main {
-
     public static void main(String[] args) {
 
-        Library library = new Library();
+        Library library=new Library();
 
-        // Adding books
-        library.addBook(new Book("Clean Code","Robert C. Martin","978-0132350884",false));
+        // Create object  Books
+        Book b1 = new Book("B001", "Clean Code", "Robert C. Martin");
 
-        library.addBook(new Book("Effective Java","Joshan","978-0134685991",false));
+        Book b2 = new Book("B002", "Effective Java", "Joshua Bloch");
 
-        library.addBook(new Book("The Programmer","Thomas","978-0135957059",false));
+        // Create object DVD
+        DVD d1 = new DVD("D001", "Introduction to Inheritance", 120);
 
-        // Adding members
-        library.addMember(new Member("M001","Kamal"));
+        // Add items in Main
+        library.addItem(b1);
+        library.addItem(b2);
+        library.addItem(d1);
 
-        library.addMember(new Member("M002","Vimal"));
+        // Create Members in Main
+        Student student = new Student("S001", "Prunthikan");
+        Staff staff = new Staff("ST001", "Joshan");
 
-        // Display books and members
-        library.listBooks();
+        library.addMember(student);
+        library.addMember(staff);
+
+        // Display items and members in main
+        library.listItems();
         library.listMembers();
 
-        // Testing invalid condition
-        try {
-            Book invalidBook = new Book("","Nobody","000-0000000000",false);
+        // Calculate late of fees part
+        library.printAllLateFees(3);
 
-            library.addBook(invalidBook);
-
-        } catch (IllegalArgumentException e) {
-
-            System.out.println("Reject invalid book: " +e.getMessage());
-        }
+        // Test streaming part
+        System.out.println("\n---------------Streaming Test-----------------");
+        library.streamIfPossible(d1);
+        library.streamIfPossible(b1);
     }
 }
-
