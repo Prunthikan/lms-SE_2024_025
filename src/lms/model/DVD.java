@@ -6,12 +6,7 @@ public class DVD extends LibraryItem {
 
     public DVD(String id, String title,int durationMinutes) {
         super(id,title);
-
-        if (durationMinutes <= 0){
-            throw new IllegalArgumentException("Duration must greater than 0");
-        }
-
-        this.durationMinutes =durationMinutes;
+        setDurationMinutes(durationMinutes);
     }
 
     public int getDurationMinutes(){
@@ -27,6 +22,6 @@ public class DVD extends LibraryItem {
 
     @Override
     public double calculateLateFee(int daysLate){
-        return daysLate * 25.0;
+        return daysLate * 25;
     }
 }

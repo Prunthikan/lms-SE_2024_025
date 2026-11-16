@@ -4,9 +4,12 @@ import lms.model.Book;
 import lms.model.DVD;
 import lms.model.LibraryItem;
 import lms.model.Member;
+import lms.model.Loanable;
+import lms.model.Reservable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
 
 public class Library {
 
@@ -32,26 +35,26 @@ public class Library {
         members.add(member);
     }
 
-    public void listItems() {
+    public void listItems(){
         System.out.println("\n--------------Library Items ----------------");
 
-        for (LibraryItem item:items) {
+        for (LibraryItem item:items){
             System.out.println(item);
         }
     }
 
-    public void listMembers() {
+    public void listMembers(){
         System.out.println("\n--------------Library Members---------------");
-        for (Member member : members) {
+        for (Member member : members){
             System.out.println(member);
         }
     }
 
     // Polymorphism
-    public void printAllLateFees(int daysLate) {
+    public void printAllLateFees(int daysLate){
         System.out.println("\n-------- Late fees if " + daysLate + " day(s) late -----------");
 
-        for (LibraryItem item : items) {
+        for (LibraryItem item :items){
             System.out.println(item.getTitle() + ": " + item.calculateLateFee(daysLate));
         }
     }
@@ -60,8 +63,33 @@ public class Library {
     public void streamIfPossible(LibraryItem item) {
         if (item instanceof DVD dvd) {
             System.out.println("Streaming \"" + dvd.getTitle() + "\" (" + dvd.getDurationMinutes() + " min)I think ");
-        } else {
+        }
+        else {
             System.out.println(item.getTitle() + " can't be streamed___it isn't a DVD.");
         }
     }
+    public void lend(Loanable thing, Member member){
+        thing.loan(member);
+    }
+    public void reserveIfPossible(LibraryItem item, Member member){
+
+        if (item instanceof Reservable r){
+            r.reserve(member);
+        }
+        else{
+            System.out.println(item.getTitle()+" cannot be reserved.");
+        }
+    }
+    public void printMembersByActivity(){
+
+        List<Member>sortedMembers = new ArrayList<>(members);
+        Collections.sort(sortedMembers);
+        System.out.println("--------------- Members ranked by activity ---------------");
+
+        for (Member member:sortedMembers){
+            System.out.println(member.getName()+"("+member.getBorrowedCount()+" is  borrowed)");
+        }
+    }
+
+
 }

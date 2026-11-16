@@ -1,6 +1,6 @@
 package lms.model;
 
-public class Member{
+public class Member implements Comparable<Member>{
 
     private String memberId;
     private String name;
@@ -19,7 +19,7 @@ public class Member{
     }
 
     public void setMemberId(String memberId){
-        if (memberId ==null||memberId.trim().isEmpty()) {
+        if (memberId ==null||memberId.trim().isEmpty()){
             throw new IllegalArgumentException("Member ID can't be empty");
         }
         this.memberId=memberId;
@@ -30,7 +30,7 @@ public class Member{
     }
 
     public void setName(String name){
-        if (name ==null ||name.trim().isEmpty()) {
+        if (name ==null ||name.trim().isEmpty()){
             throw new IllegalArgumentException("Name can't be empty");
         }
         this.name = name;
@@ -52,11 +52,15 @@ public class Member{
         if (maxBorrowLimit <= 0) {
             throw new IllegalArgumentException("Borrow limit must greater than 0");
         }
-        this.maxBorrowLimit = maxBorrowLimit;
+        this.maxBorrowLimit=maxBorrowLimit;
     }
+
 
     @Override
     public String toString() {
         return "Member{memberId='" + memberId + "', name='" + name + "', borrowedCount=" + borrowedCount + ", maxBorrowLimit=" + maxBorrowLimit + "}";
+    }
+    @Override public int compareTo(Member other) {
+        return Integer.compare(other.borrowedCount, this.borrowedCount);   // most active first
     }
 }
