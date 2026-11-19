@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff9452c9-4873-4c4d-8c25-3f9b3d5f086d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/lms/model/Loanable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lms/model/Magazine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lms/model/Reservable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lms/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lms/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lms/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lms/model/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lms/model/DVD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lms/model/DVD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lms/model/LibraryItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lms/model/LibraryItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lms/model/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lms/model/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lms/model/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lms/model/Staff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lms/service/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lms/service/Library.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +45,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "week4-abstraction-interfaces",
+    "git-widget-placeholder": "week5-exceptions",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/prunt/Documents/GitHub/lms-SE_2024_025",
     "nodejs_package_manager_path": "npm",

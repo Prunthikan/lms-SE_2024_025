@@ -1,15 +1,18 @@
 package lms.model;
+import lms.exception.ItemNotAvailableException;
 
-public abstract class LibraryItem implements Loanable {
+public abstract class LibraryItem implements Loanable{
 // attributes
     private String id;
     private String title;
     private boolean isBorrowed;
+    private Member borrower;
 // constructor
-    public LibraryItem(String id, String title) {
+    public LibraryItem(String id, String title){
         setId(id);
         setTitle(title);
         this.isBorrowed= false;
+        this.borrower = null;
     }
 //getter
     public String getId() {
@@ -45,27 +48,29 @@ public abstract class LibraryItem implements Loanable {
     public abstract double calculateLateFee(int daysLate);
 
     @Override
-    public void loan(Member member) {
+    public void loan(Member member)  throws ItemNotAvailableException {
         if(isBorrowed){
-            System.out.println(getTitle()+ " is already in loaned ");
-            return;
+            throw new ItemNotAvailableException(title +" is already on loan");
         }
         if(member.getBorrowedCount()>= member.getMaxBorrowLimit()){
-            System.out.println(member.getName()+" is reached the borrow maximum limit");
-            return;
+            throw new ItemNotAvailableException(member.getName()+" is reached the limit of "+member.getMaxBorrowLimit()+" items");
         }
         setBorrowed(true);
+        borrower = member;
         member.incrementBorrowedCount();
-        System.out.println(getTitle()+ " is loaned to " + member.getName());
+        System.out.println(getTitle()+" is loaned to "+member.getName());
     }
 
     @Override
-    public void returnItem() {
-        if (!isBorrowed) {
-            System.out.println(getTitle()+ " is not currently on loaning");
-            return;
+    public void returnItem() throws ItemNotAvailableException{
+        if (!isBorrowed){
+            throw new ItemNotAvailableException(title+" is not on loan.");
         }
         setBorrowed(false);
+        if (borrower!= null){
+            borrower.decrementBorrowedCount();
+            borrower=null;
+        }
         System.out.println(getTitle()+" is returned");
     }
 

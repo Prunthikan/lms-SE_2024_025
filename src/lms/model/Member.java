@@ -60,7 +60,12 @@ public class Member implements Comparable<Member>{
     public String toString() {
         return "Member{memberId='" + memberId + "', name='" + name + "', borrowedCount=" + borrowedCount + ", maxBorrowLimit=" + maxBorrowLimit + "}";
     }
-    @Override public int compareTo(Member other) {
-        return Integer.compare(other.borrowedCount, this.borrowedCount);   // most active first
+    @Override public int compareTo(Member other){
+        return Integer.compare(other.borrowedCount,this.borrowedCount);   // most active first
+    }
+    public void decrementBorrowedCount(){
+        if (borrowedCount > 0) {
+            borrowedCount--;
+        }
     }
 }
