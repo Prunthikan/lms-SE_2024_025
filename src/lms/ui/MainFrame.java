@@ -11,7 +11,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
-public class MainFrame extends JFrame {
+public class MainFrame extends JFrame{
 
     private Library library;
     private DefaultTableModel tableModel;
@@ -23,40 +23,33 @@ public class MainFrame extends JFrame {
 
     private JLabel statusLabel;
 
-    public MainFrame(Library library) {
-
+    public MainFrame(Library library){  // constructor
         this.library = library;
 
         // Main window settings
         setTitle("Library Management System");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(820, 460);
+        setSize(820,460);
         setLocationRelativeTo(null);
 
-        setLayout(new BorderLayout(5, 5));
+        setLayout(new BorderLayout(5,5));
 
-
-        // NORTH - Heading Gui
-        JLabel heading = new JLabel("Library Management System", SwingConstants.CENTER);
-        heading.setFont(new Font("Arial", Font.BOLD, 22));
+        //  Table North - Heading Gui
+        JLabel heading =new JLabel("Library Management System", SwingConstants.CENTER);
+        heading.setFont(new Font("Arial",Font.BOLD,22));
         add(heading, BorderLayout.NORTH);
 
-        // CENTER - Table in Gui
-        String[] columns = {"ID", "Title", "Type", "Detail", "Status"};
-
-        tableModel = new DefaultTableModel(columns, 0);
+        //  Table Center - Table in Gui (task02)
+        String[] columns ={"ID", "Title", "Type", "Detail", "Status"};
+        tableModel = new DefaultTableModel(columns,0);
         itemTable = new JTable(tableModel);
         JScrollPane scrollPane = new JScrollPane(itemTable);
         add(scrollPane, BorderLayout.CENTER);
 
-
-        // WEST - Add Item Form in Gui
-        JPanel formPanel = new JPanel(new GridLayout(0, 2, 6, 8));
-
+        // Table West - Add Item Form in Gui (task03)
+        JPanel formPanel =new JPanel(new GridLayout(0, 2, 6, 8));
         formPanel.setBorder(new TitledBorder("New Item"));
-
         typeComboBox = new JComboBox<>(new String[]{"Book", "DVD", "Magazine"});
-
         idField = new JTextField();
         titleField = new JTextField();
         detailField = new JTextField();
@@ -78,22 +71,15 @@ public class MainFrame extends JFrame {
         formPanel.add(new JLabel(""));
         formPanel.add(addButton);
 
-
         // Wrapper panel keeps the form at natural height
         JPanel westPanel =new JPanel(new BorderLayout());
-
         westPanel.add(formPanel, BorderLayout.NORTH);
-
         add(westPanel, BorderLayout.WEST);
 
-
-        // SOUTH - Status and Buttons in gui
+        // Table South - Status and Buttons in gui (task04)
         JPanel southPanel =new JPanel(new BorderLayout());
-
         statusLabel =new JLabel("Ready");
-
         southPanel.add(statusLabel, BorderLayout.WEST);
-
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 
         JButton borrowButton = new JButton("Borrow");
@@ -101,18 +87,15 @@ public class MainFrame extends JFrame {
 
         buttonPanel.add(borrowButton);
         buttonPanel.add(returnButton);
-
         southPanel.add(buttonPanel, BorderLayout.EAST);
-
         add(southPanel, BorderLayout.SOUTH);
-
 
         // Displaying the  existing library items
         refreshTable();
     }
 
 
-    // Refresh the table
+    // Refresh the table Task02
     public void refreshTable(){
         tableModel.setRowCount(0);
         for (LibraryItem item : library.getItems()){
@@ -122,35 +105,26 @@ public class MainFrame extends JFrame {
                 Book book = (Book) item;
                 type = "Book";
                 detail = book.getAuthor();
-
             }
             else if (item instanceof DVD){
                 DVD dvd = (DVD) item;
                 type = "DVD";
                 detail = dvd.getDurationMinutes() + " min";
-
             }
-            else if (item instanceof Magazine) {
+            else if (item instanceof Magazine){
                 type = "Magazine";
                 detail = "Issue 42";
             }
 
             String status;
             if (item.isBorrowed()){
-                status = "Borrowed";
+                status ="Borrowed";
             }
             else{
-                status = "Available";
+                status ="Available";
             }
 
-            Object[] row = {
-                    item.getId(),
-                    item.getTitle(),
-                    type,
-                    detail,
-                    status
-            };
-
+            Object[] row ={item.getId(), item.getTitle(), type, detail, status};
             tableModel.addRow(row);
         }
     }
