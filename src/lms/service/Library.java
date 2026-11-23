@@ -121,4 +121,7 @@ public class Library {
         LibraryItem item = findItem(itemId);
         item.returnItem();
     }
+    public List<LibraryItem> getItems(){
+        return items;
+    }
 }
